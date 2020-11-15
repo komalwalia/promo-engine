@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Promotions {
 	Map<String, Product> skuIdProductMap = new HashMap<String, Product>();
+
 	public void getInput() {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter the total number of products in an order: ");
@@ -24,7 +25,10 @@ public class Promotions {
 			product.setQuantity(quantity);
 			skuIdProductMap.put(product.getId(), product);
 		}
+
+		s.close();
 	}
+
 	public double getPrice() {
 		double price = 0;
 
@@ -59,7 +63,7 @@ public class Promotions {
 				quantity = quantity < 0 ? 0 : quantity;
 				quantityOfCAndD = product.getQuantity() == skuIdProductMap.get("C").getQuantity()
 						? product.getQuantity()
-						: 0;
+						: Math.abs(product.getQuantity() - skuIdProductMap.get("C").getQuantity());
 			} else
 				quantity = product.getQuantity();
 
