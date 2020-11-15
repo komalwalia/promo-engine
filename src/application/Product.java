@@ -3,7 +3,7 @@ package application;
 public class Product {
 
 	private String id;
-	private int price;
+	private double price;
 	private int quantity;
 
 	public Product(String id) {
@@ -36,7 +36,7 @@ public class Product {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
